@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 
 void main() => runApp(
@@ -33,8 +34,7 @@ class Ball extends StatefulWidget {
 }
 
 class _BallState extends State<Ball>{
-  //   with SingleTickerProviderStateMixin {
-  // late AnimationController _controller;
+  int ballNumber = 0;
 
   @override
   void initState() {
@@ -51,7 +51,13 @@ class _BallState extends State<Ball>{
   @override
   Widget build(BuildContext context) {
     return Center( 
-      child: TextButton(onPressed: () {print("Hello");},
+      child: TextButton(onPressed: () {
+        // setState(() {
+        //   ballNumber = Random().nextInt(5)+1;
+        // });
+        ballNumber = Random().nextInt(4)+1;
+        print(ballNumber);
+      },
       child: Image.asset('images/ball1.png'))
       );
     
