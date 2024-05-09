@@ -34,7 +34,7 @@ class Ball extends StatefulWidget {
 }
 
 class _BallState extends State<Ball>{
-  int ballNumber = 0;
+  int ballNumber = 1;
 
   @override
   void initState() {
@@ -52,13 +52,15 @@ class _BallState extends State<Ball>{
   Widget build(BuildContext context) {
     return Center( 
       child: TextButton(onPressed: () {
-        // setState(() {
-        //   ballNumber = Random().nextInt(5)+1;
-        // });
-        ballNumber = Random().nextInt(4)+1;
+        // updates the state of the image when the ballNumber var updates
+        
+        setState(() {
+          ballNumber = Random().nextInt(4)+1;
+        });
         print(ballNumber);
       },
-      child: Image.asset('images/ball1.png'))
+      // Uses String interpolation and ballNumber var to make it show a random image
+      child: Image.asset('images/ball$ballNumber.png'))
       );
     
   }
